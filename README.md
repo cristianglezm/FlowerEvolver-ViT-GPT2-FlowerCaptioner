@@ -50,5 +50,6 @@ python convert.py --quantize --model_id "./models/FlowerCaptioner" --task "image
 
 ## License
 
-convert.py is under [xenova/transformers.js](https://github.com/xenova/transformers.js) license
+convert.py is under [huggingface/transformers.js](https://github.com/huggingface/transformers.js) license
+quantize.py is under [huggingface/transformers.js](https://github.com/huggingface/transformers.js) license
 

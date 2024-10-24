@@ -109,7 +109,7 @@ The following hyperparameters were used during training:
 
 ### Framework versions
 
-- Transformers 4.33.2
+- Transformers 4.43.4
 - Pytorch 2.4.1+cu124
 - Datasets 2.20.0
-- Tokenizers 0.13.3
+- Tokenizers 0.19.1
