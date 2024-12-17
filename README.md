@@ -45,10 +45,34 @@ python FlowerCaptioner.py -t -m <model_name>
 ## Convert to ONNX
 
 ````bash
-python convert.py --quantize --model_id "./models/FlowerCaptioner" --task "image-to-text-with-past" --opset 18
+python convert.py --quantize --model_id "./models/FlowerCaptioner" --task "image-to-text-with-past" --opset 19
 ````
+
+## Testing ONNX on localhost
+
+Make a serve.py inside the models folder to be able to use local models on Chrome / Edge.
+
+```python
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+
+class CORSRequestHandler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        return super().end_headers()
+
+if __name__ == '__main__':
+    port = 80
+    server_address = ('', port)
+    httpd = HTTPServer(server_address, CORSRequestHandler)
+    print(f'Serving on port {port}')
+    httpd.serve_forever()
+```
 
 ## License
 
-convert.py is under [xenova/transformers.js](https://github.com/xenova/transformers.js) license
+convert.py is under [huggingface/transformers.js](https://github.com/huggingface/transformers.js) license.
+
+quantize.py is under [huggingface/transformers.js](https://github.com/huggingface/transformers.js) license.
 
